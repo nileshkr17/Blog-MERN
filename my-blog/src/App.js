@@ -1,5 +1,6 @@
 import './App.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import NavBar from './pages/NavBar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ArticlesListPage from './pages/ArticlesListPage';
@@ -10,13 +11,13 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      <h1>My Awesome Blog </h1>
+      <NavBar/>
       <div id="page-body">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/articles" element={<ArticlesListPage />} />
-          <Route path="/article" element={<ArticlePage />} />
+          <Route path="/article/:articleId" element={<ArticlePage />} />
           {/* <Route path="*" element={<NotFoundPage />} /> */}
 
         </Routes>
