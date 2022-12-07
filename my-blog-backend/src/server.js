@@ -29,7 +29,8 @@ app.put('/api/articles/:name/upvote', async(req,res)=>{
    
         const article = await db.collection('articles').findOne({name});
     if(article){
-        res.send(`The ${name} article now has ${article.upvotes} upvotes`);
+        //res.send(`The ${name} article now has ${article.upvotes} upvotes`);
+        res.json(article);
         res.status(200);
     } else{
         res.sendStatus(404);

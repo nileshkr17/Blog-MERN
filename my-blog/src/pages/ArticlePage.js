@@ -22,6 +22,13 @@ const ArticlePage = () => {
 //when the component is first rendered, the useEffect hook will be called
 
   const article = articles.find(article=>article.name ===articleId);
+
+  //This function will be called when the user clicks the upvote button
+  const addUpvote = async () => {
+    const response = await axios.put(`/api/articles/${articleId}/upvote`);
+    setArticleInfo(response.data);
+  }
+  
   if(!article) {
     return  <NotFoundPage/>
   }
@@ -29,8 +36,11 @@ const ArticlePage = () => {
   return (
     <>
     <h1>{article.title}</h1>
+    <div className='upvote-section'>
+    <button onClick={addUpvote}>Upvote</button>
     <h2>{article.name}</h2>
     <p>This article has {articleInfo.upvotes} upvote(s)</p>
+    </div>
     {article.content.map((paragraph,i)=>(
       <p key={i}>{paragraph}</p>
     ))}
