@@ -7,6 +7,7 @@ import NotFoundPage from './NotFoundPage';
 const ArticlePage = () => {
   const {articleId} = useParams();
   const article = articles.find(article=>article.name ===articleId);
+  
   if(!article) {
     return  <NotFoundPage/>
   }
