@@ -9,7 +9,8 @@ import AddCommentForm from '../components/AddCommentForm';
 import useUser from '../hooks/useUser';
 
 const ArticlePage = () => {
-  const [articleInfo,setArticleInfo] = useState({upvotes:0,comments:[]});
+  const [articleInfo,setArticleInfo] = useState({upvotes:0,comments:[],canUpvote:false});
+  const{canUpvote}=articleInfo;
   const {articleId} = useParams();
   const {user,isloading}=useUser();
 
@@ -24,9 +25,11 @@ const ArticlePage = () => {
     const newArticleInfo = response.data;
     setArticleInfo(newArticleInfo);
     }
-
-    loadArticleInfo();
-  },[]);
+if(isloading){
+  loadArticleInfo();
+}
+   
+  },[isloading,user]);
 
 //when the component is first rendered, the useEffect hook will be called
 
@@ -49,7 +52,7 @@ const ArticlePage = () => {
     <h1>{article.title}</h1>
     <div className='upvote-section'>
 {user 
-      ?  <button onClick={addUpvote}>Upvote</button>
+      ?  <button onClick={addUpvote}>{canUpvote ? 'Upvote' : 'Already Upvoted'}</button>
       :<button>Log in to upvote</button>
 } 
     

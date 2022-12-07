@@ -25,7 +25,7 @@ const AddCommentForm = ({ articleName, onArticleUpdated }) => {
     return(
         <div id="add-comment-form">
             <h3>Add a comment</h3>
-            <label>
+            {/* <label>
                 Name: 
                 <input 
                 type="text"
@@ -33,16 +33,19 @@ const AddCommentForm = ({ articleName, onArticleUpdated }) => {
                 value={name}
                 onChange={e=>setName(e.target.value)}
                  />
-            </label>
-            <label>
-                Comment: 
+            </label> */}
+            {user && 
+            <p>
+                You are posting as {user.email}
+            </p>}
+            
                 <textarea 
                     value={commentText}
                     required
                     onChange={e=>setCommentText(e.target.value)}
                     rows="4" cols="50"
                     />
-            </label>
+      
             <button onClick={addComment}>Add comment</button>
         </div> 
     )
