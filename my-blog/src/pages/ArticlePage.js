@@ -3,18 +3,25 @@ import articles from './article-content';
 import { useParams } from 'react-router-dom'
 import NotFoundPage from './NotFoundPage';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 const ArticlePage = () => {
   const [articleInfo,setArticleInfo] = useState({upvotes:0,comments:[]});
-
-  useEffect(()=> {
-    setArticleInfo({upvotes:3,comments:[]});
-  });
-
   const {articleId} = useParams();
-  const article = articles.find(article=>article.name ===articleId);
+  useEffect(()=> {
+    const loadArticleInfo = async () => {
+    const response = await axios.get(`/api/articles/${articleId}`);
+    const newArticleInfo = response.data;
+    setArticleInfo(newArticleInfo);
+    }
 
+    loadArticleInfo();
+  },[]);
+
+//when the component is first rendered, the useEffect hook will be called
+
+  const article = articles.find(article=>article.name ===articleId);
   if(!article) {
     return  <NotFoundPage/>
   }
