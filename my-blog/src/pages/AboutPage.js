@@ -5,22 +5,10 @@ const AboutPage = () => {
     <>
     <h1>About</h1>
     <p>
-    Welcome! Today we're going to be talking about the fastest way to
-            learn React. We'll be discussing some topics such as proin congue
-            ligula id risus posuere, vel eleifend ex egestas. Sed in turpis leo. 
-            Aliquam malesuada in massa tincidunt egestas. Nam consectetur varius turpis, 
-            non porta arcu porttitor non. In tincidunt vulputate nulla quis egestas. Ut 
-            eleifend ut ipsum non fringilla. Praesent imperdiet nulla nec est luctus, at 
-            sodales purus euismod.
+    A blog is an online writing genre characterized by episodic entries that may be thematically related, related by being a particular person’s thoughts, or be sequential in time like a diary or log. In fact, the word blog is short for weblog — a log of events maintained on a website. A blog application is a software program that provides an online environment and features for a blogger. A blog application may be open source software used by many people or built from scratch by the blogger. A blog application may also be referred to as weblog software or blogware and can be considered a particular use of a CMS (Content Management System).
     </p>
     <p>
-    Donec vel mauris lectus. Etiam nec lectus urna. Sed sodales ultrices dapibus. 
-            Nam blandit tristique risus, eget accumsan nisl interdum eu. Aenean ac accumsan 
-            nisi. Nunc vel pulvinar diam. Nam eleifend egestas viverra. Donec finibus lectus 
-            sed lorem ultricies, eget ornare leo luctus. Morbi vehicula, nulla eu tempor 
-            interdum, nibh elit congue tellus, ac vulputate urna lorem nec nisi. Morbi id 
-            consequat quam. Vivamus accumsan dui in facilisis aliquet.`,
-            `Etiam nec lectus urna. Sed sodales ultrices dapibus. 
+    Hosted weblog applications, downloadable software, and blogware that can be hosted by the blogger’s ISP (Internet Service Provider) are all available. Each of these models could have a basic version that is free, possibly with added options available for a fee, or the software could be proprietary and only available through a licensing agreement. Many bloggers use Blogger® or the hosted version of WordPress® or MovableType® — the hosted version of the latter is called Typepad® — for example. A hosted blog application may or may not be paired with a downloadable option. WordPress® and TypePad® are; Blogger® is not.
     </p>
     </>
   )

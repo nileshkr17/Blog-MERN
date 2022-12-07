@@ -7,6 +7,8 @@ import axios from 'axios';
 import CommentsList from '../components/CommentsList';
 import AddCommentForm from '../components/AddCommentForm';
 import useUser from '../hooks/useUser';
+import {useNavigate} from 'react-router-dom';
+
 
 const ArticlePage = () => {
   const [articleInfo,setArticleInfo] = useState({upvotes:0,comments:[],canUpvote:false});
@@ -25,7 +27,7 @@ const ArticlePage = () => {
     const newArticleInfo = response.data;
     setArticleInfo(newArticleInfo);
     }
-if(isloading){
+if(!isloading){
   loadArticleInfo();
 }
    
@@ -33,6 +35,7 @@ if(isloading){
 
 //when the component is first rendered, the useEffect hook will be called
 
+const navigate = useNavigate();
   const article = articles.find(article=>article.name ===articleId);
 
   //This function will be called when the user clicks the upvote button
@@ -53,7 +56,9 @@ if(isloading){
     <div className='upvote-section'>
 {user 
       ?  <button onClick={addUpvote}>{canUpvote ? 'Upvote' : 'Already Upvoted'}</button>
-      :<button>Log in to upvote</button>
+      :<button onClick={()=>{
+        navigate('/login')
+    }}>Log in to upvote</button>
 } 
     
     <h2>{article.name}</h2>
