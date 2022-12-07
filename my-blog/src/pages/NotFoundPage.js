@@ -1,9 +1,9 @@
 import React from 'react'
 
-const NotFoundPage = () => {
-  return (
-    <>NotFoundPage</>
-  )
-}
+const NotFoundPage = () => 
+(
+    <h1>404: NotFoundPage</h1>
+  );
+
 
 export default NotFoundPage
